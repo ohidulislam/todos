@@ -1,0 +1,23 @@
+.d-flex {
+    display: flex;
+}
+.btn-group {
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-align: right;
+    
+    input {
+        max-width: 100px;
+    }
+    button {
+        margin: 0 7px;
+    }
+}
+.navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.nav {
+    display: flex;
+}
