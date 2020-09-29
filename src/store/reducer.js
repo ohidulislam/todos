@@ -30,12 +30,9 @@ const reducer = (state = initState, action) => {
         }
     }
     if (action.type === 'COMPLETE_TODO') {
-        // console.log(action.id)
-        const completeTask = state.todos.find(item => {
-            return item.id === action.Id
+        const newTodos = state.todos.filter( todo => { 
+            return todo.id !== action.id
         })
-        console.log(completeTask);
-
     }
     return state
 }
