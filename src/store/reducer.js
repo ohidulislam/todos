@@ -1,7 +1,15 @@
 const initState = {
     todos: [
-        { id: 1, content: "Go to market" },
-        { id: 2, content: "Buy some milk" }
+        {
+            id: 1,
+            content: "Go to market",
+            completed: false
+        },
+        {
+            id: 2,
+            content: "Buy some milk",
+            completed: false
+        }
     ]
 }
 
@@ -20,6 +28,14 @@ const reducer = (state = initState, action) => {
         return {
             todos: newTodos
         }
+    }
+    if (action.type === 'COMPLETE_TODO') {
+        // console.log(action.id)
+        const completeTask = state.todos.find(item => {
+            return item.id === action.Id
+        })
+        console.log(completeTask);
+
     }
     return state
 }

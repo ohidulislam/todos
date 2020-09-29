@@ -17,7 +17,8 @@ class App extends Component {
   }
 
   completeTodo = (id) => {
-    console.log(id)
+    // console.log(id)
+    this.props.onCompleteTodo(id)
   }
 
   render() {
@@ -51,7 +52,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAddTodo: (data) => dispatch({ type: 'ADD_TODO', data: data }),
-    onDeleteTodo: (itemId) => dispatch({ type: 'DELETE_TODO', itemId: itemId })
+    onDeleteTodo: (itemId) => dispatch({ type: 'DELETE_TODO', itemId: itemId }),
+    onCompleteTodo: (id) => dispatch({ type: 'COMPLETE_TODO', id: id })
   }
 }
 
