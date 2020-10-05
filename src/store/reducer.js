@@ -30,9 +30,18 @@ const reducer = (state = initState, action) => {
         }
     }
     if (action.type === 'COMPLETE_TODO') {
-        const newTodos = state.todos.filter( todo => { 
-            return todo.id !== action.id
+        const newTodos = state.todos.find( todo => { 
+            return todo.id === action.id
         })
+        newTodos.completed = true
+        const updateTodos = [
+            ...state.todos,
+        ]
+        console.log(updateTodos);
+        return {
+            todos: updateTodos
+        }
+        // newTodos.completed = true
     }
     return state
 }
