@@ -30,17 +30,36 @@ const reducer = (state = initState, action) => {
         }
     }
     if (action.type === 'COMPLETE_TODO') {
-        const newTodos = state.todos.find( todo => { 
-            return todo.id === action.id
-        })
-        newTodos.completed = true
-        const updateTodos = [
+        const updatedTodos = [
             ...state.todos,
         ]
-        console.log(updateTodos);
-        return {
-            todos: updateTodos
+
+        for (let item of updatedTodos) {
+            if (item.id === action.id) {
+                item.completed = true
+                console.log(item);
+            }
         }
+
+        // console.log(uparr);
+        // console.log(state.todos);
+        return {
+            todos: updatedTodos
+        }
+
+
+        // const newTodos = state.todos.find(todo => {
+        //     return todo.id === action.id
+        // })
+        // newTodos.completed = true
+        // const updateTodos = [
+        //     ...state.todos,
+        // ]
+        // console.log(newTodos);
+        // console.log(state.todos);
+        // return {
+        //     todos: updateTodos
+        // }
         // newTodos.completed = true
     }
     return state

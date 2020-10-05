@@ -10,7 +10,7 @@ const itemStyle = {
 
 const Todos = ({ todos, deleteTodo, completeTodo }) => {
 
-    const [priority, setPriority] = useState('')
+    const [priority, setPriority] = useState(0)
 
     // console.log(typeof (priority));
 
@@ -24,9 +24,9 @@ const Todos = ({ todos, deleteTodo, completeTodo }) => {
     let todoList = todos.map(todo => {
         return (
             <li className="collection-item" style={itemStyle} key={todo.id}>
-                {todo.content}
+                {todo.completed ? <span className="completed">{todo.content}</span> : todo.content}
                 <div className="btn-group">
-                    {/* <input type="text" value={priority} min={0} max={5} onChange={event => setPriority(event.target.value)} /> */}
+                    <input type="text" value={priority} min={0} max={5} onChange={event => setPriority(event.target.value)} />
                     <button className="waves-effect waves-light btn blue" onClick={() => completeTodo(todo.id)}>Complete</button>
                     <button className="waves-effect waves-light btn red" onClick={() => { deleteTodo(todo.id) }}>Delete</button>
                 </div>
