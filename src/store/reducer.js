@@ -62,6 +62,9 @@ const reducer = (state = initState, action) => {
         // }
         // newTodos.completed = true
     }
+    if (action.type === 'SET_PRIORITY') {
+        console.log(action.value)
+    }
     return state
 }
 
